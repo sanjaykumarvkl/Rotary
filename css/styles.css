@@ -1,0 +1,143 @@
+.row-header{
+    margin: 0px auto;
+    padding: 0px auto;
+    
+}
+
+.row-content{
+    margin: 0px auto;
+    padding: 50px 0px 50px 0px;
+    border-bottom: 1px ridge;
+    min-height: 400px;
+    font-size: 85%;
+}
+
+.footer{
+    background-color: #bbdefb;
+    margin: auto;
+    padding: 20px 0px 20px 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    
+}
+
+.jumbotron{
+    padding: 70px 30px 70px 30px;
+    margin: 0px auto;
+    background: #2196f3;
+    color: floralwhite;
+}
+
+.address{
+    font-size: 80%;
+    margin: 0px;
+    color: #0F0F0F;
+}
+
+body{
+    padding: 0px 0px 0px 0px;
+    z-index: 0;
+}
+
+.navbar-dark {
+    background-color: #2979ff;
+}
+
+.tab-content{
+    border-left:1px solid #ddd;
+    border-right:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    padding: 10px;
+}
+
+.carousel{
+    background: white;
+    
+    
+}
+
+.carousel-item{
+    height: auto;
+    width: 100%;
+    
+}
+
+
+#map {
+    height: 400px;  /* The height is 400 pixels */
+    width: 100%;  /* The width is the width of the web page */
+   }
+
+.clubname{
+    font-size:x-large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+small{
+    font-size: small;
+}
+
+.text-block {
+    position: relative;
+    bottom: 20px;
+    background-color:#2196f3;
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    
+  }
+
+p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: medium;
+}
+
+iframe{
+    width: 100%;
+    height: auto;
+}
+
+  .image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    vertical-align: middle;
+    border-radius: 50%;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+  }
+  
+  .carousel-inner:hover .image {
+    opacity: 0.75;
+  }
+  
+  .carousel-inner:hover .middle {
+    opacity: 1;
+  }
+
+  .text {
+    background-color:#2196f3;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .card-header{
+      text-align: center;
+      color: black;
+      font-size: x-large;
+      background-color: #2196f3;
+  }
