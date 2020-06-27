@@ -29,15 +29,15 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div class="collapse navbar-collapse" id="Navbar">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#"><span class="fa fa-home fa-lg"></span> Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html"><span class="fa fa-home fa-lg"></span> Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./aboutus.html"><span class="fa fa-info fa-lg"></span> About</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="./menu.html"><span class="fa fa-list fa-lg"></span> Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="./contact.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./join.html"><span class="fa fa-hand-o-right"></span> Get Involved</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-hand-o-right"></span> Get Involved</a></li>
                 </ul>
             </div>    
         </div>
@@ -61,19 +61,104 @@
 
     <div class="container">
         
-        <div class="row row-content align-items-center">
-            <div class="col col-sm order-sm-first col-md">
-                <div class="media">
-                    <div class="media-body">
-                        <h2 class="mt-0">Club bulletin</h2>
-                        <p class="d-none d-sm-block">Club bulletin</p>
+        <div class="row row-content">
+            <div class="col-12 col-md-9">
+                <span id="thanks" style="color: black; font-size: x-large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                    Thank you so much for showing your interest in us!!!
+                </span>
+                <br>
+                <br>
+                <br>
+                <form name="contact" method="POST">
+                    <div class="form-group row">
+                        <label for="firstname" class="col-md-2 col-form-label">First Name</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" required>
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group row">
+                        <label for="lastname" class="col-md-2 col-form-label">Last Name</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="telnum" class="col-12 col-md-2 col-form-label">Mobile</label>
+                        <div class="col-12 col-md-10">
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Mobile Number (10 -digits)" pattern="[0-9]{10}" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="emailid" class="col-md-2 col-form-label">Email</label>
+                        <div class="col-md-10"> 
+                            <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="profession" class="col-md-2 col-form-label">Profession</label>
+                        <div class="col-md-6">
+                            <select class="form-control" name="profession" id="profession">
+                                <option>Student</option>
+                                <option>Job</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        
+                    </div>
+                    <div class="form-group row">
+                        <div class="offset-md-2 col-md-10">
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            <span style="color: black; font-size: small; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                Note: Submitting the form will open your mail client! The To, Subject and the Body of the mail is automatically written by us. kindly send the mail. Thanks in advance :-) 
+            </span>
             </div>
         </div>
-
-
     </div>
+    <script>
+        var form = document.forms["contact"];
+        form.addEventListener('submit',contact_submit,false);
+    
+        function contact_submit(e) {
+            // Stop Form From Submitting
+            e.preventDefault();
+    
+            // Set Initial Variables
+            var target = e.target || e.srcElement;
+            var to = 'rotaractcbetexcity@gmail.com';
+            var uri = 'mailto:' + to;
+            var body = '';
+    
+            // Set Form Values to Variables
+            var fname = target.elements['firstname'].value;
+            var lname = target.elements['lastname'].value;
+            var phone = target.elements['phone'].value;
+            var emailid = target.elements['emailid'].value;
+            var profession =target.elements['profession'].value;
+            var message = "I would like to join the club. I am willing to hear more form you! Below are my contact details. waiting to speak with you!"
+    
+            // Build Body / Message with all Input Fields
+            body += message + "\r\n\r\n";
+            body += "First Name: " + fname + "\r\n";
+            body += "Last Name: " + lname + "\r\n";
+            body += "Phone Number: " + phone + "\r\n";
+            body += "Email id: " + emailid + "\r\n";
+            body += "Profession: " + profession + "\r\n\r\n"; 
+            body += "Thanks and Regards," + "\r\n" + fname + "\r\n";
+            // Build final Mailto URI
+            uri += '?subject= Joining in the club - Reg';
+            uri += '&body=' + encodeURIComponent(body);
+    
+            // Open Mailto in New Window / Tab
+            var myWindow=window.open(uri);
+            myWindow.opener.document.getElementById("thanks").innerHTML = "Thanks for submitting the details";
+        }
+    </script>
     
     <footer class="footer">
         <div class="container">
