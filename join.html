@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script scr="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -109,7 +110,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="offset-md-2 col-md-10">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary" onclick="sendmail()">
                                 Submit
                             </button>
                         </div>
@@ -121,7 +122,7 @@
             </div>
         </div>
     </div>
-    <script>
+   <script>
         var form = document.forms["contact"];
         form.addEventListener('submit',contact_submit,false);
     
@@ -131,8 +132,8 @@
     
             // Set Initial Variables
             var target = e.target || e.srcElement;
-            var to = 'rotaractcbetexcity@gmail.com';
-            var uri = 'mailto:' + to;
+            //var to = 'rotaractcbetexcity@gmail.com';
+            //var uri = 'mailto:' + to;
             var body = '';
     
             // Set Form Values to Variables
@@ -141,19 +142,21 @@
             var phone = target.elements['phone'].value;
             var emailid = target.elements['emailid'].value;
             var profession =target.elements['profession'].value;
-            var message = "I would like to join the club. I am willing to hear more form you! Below are my contact details. waiting to speak with you!"
+            
+            //var message = "I would like to join the club. I am willing to hear more form you! Below are my contact details. waiting to speak with you!"
     
             // Build Body / Message with all Input Fields
-            body += message + "\r\n\r\n";
-            body += "First Name: " + fname + "\r\n";
-            body += "Last Name: " + lname + "\r\n";
-            body += "Phone Number: " + phone + "\r\n";
-            body += "Email id: " + emailid + "\r\n";
-            body += "Profession: " + profession + "\r\n\r\n"; 
-            body += "Thanks and Regards," + "\r\n" + fname + "\r\n";
+            /*body += message + "\n\n";
+            body += "First Name: " + fname + "\n";
+            body += "Last Name: " + lname + "\n";
+            body += "Phone Number: " + phone + "\n";
+            body += "Email id: " + emailid + "\n";
+            body += "Profession: " + profession + "\n\n"; 
+            body += "Thanks and Regards," + "\n" + fname + "\n";
             // Build final Mailto URI
             uri += '?subject= Joining in the club - Reg';
-            uri += '&body=' + encodeURIComponent(body);
+            uri += '&body=' + encodeURIComponent(body);*/
+            var uri="mailto:rotaractcbetexcity@gmail.com?subject=Joining%20in%20the%20club%20-%20Reg&body=I%20would%20like%20to%20join%20the%20club.%20I%20am%20willing%20to%20hear%20more%20from%20you!%20Below%20are%20my%20contact%20details.%20waiting%20to%20speak%20with%20you!%0D%0A%0D%0AFirst%20Name%3A%20"+fname+"%0D%0ALast%20Name%3A%20"+lname+"%0D%0AMobile%3A%20"+phone+"%0D%0AEmail%3A%20"+emailid+"%0D%0AProfession%3A%20"+profession+"%0D%0A%0D%0AThanks%20and%20Regards%2C%0D%0A"+fname+"%0D%0A"
     
             // Open Mailto in New Window / Tab
             var myWindow=window.open(uri);
